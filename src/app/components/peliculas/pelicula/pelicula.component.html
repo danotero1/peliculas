@@ -1,0 +1,38 @@
+<div class="container bajo">
+    <div class="card">
+        <div class=" container bajo">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img *ngIf="res.results[0].multimedia !== null" [src]="res.results[0].multimedia.src |imgP" class="imagen" alt="...">
+                    <img *ngIf="res.results[0].multimedia == null" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyL4boRUlkGajD1gCVFDIBqSBtjQqutjZThY_kc3Xm0VebZ__XOw&s" class="card-img-top" alt="...">
+                </div>
+                <div class="col-sm-4">
+                    <h4 class="text-danger">{{res.results[0].display_title}}</h4>
+                    <small><b>Opening date: </b>{{ res.results[0].opening_date}} <b>Rating: </b>{{res.results[0].mpaa_rating}} </small>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="container">
+
+        </div>
+        <br>
+        <div class="container">
+            {{res.results[0].summary_short}}
+
+        </div>
+        <br>
+        <div class="container">
+            <b>For more information :</b> <a [href]="res.results[0].link.url">{{res.results[0].link.url}}</a>
+        </div>
+        <div class="container bajo">
+            <button class="btn btn-danger" [routerLink]="['/peliculas']">Back</button>
+        </div>
+        <br>
+
+
+    </div>
+
+
+</div>

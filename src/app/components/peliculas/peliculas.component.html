@@ -1,0 +1,47 @@
+<div class="container bajo">
+
+    <form (ngSubmit)="buscar()" #forma="ngForm">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-danger">Movie</h2>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" [(ngModel)]="peli" name="peli" aria-label="Sizing example input">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-success" type="submit" (click)="buscar()">Seach movie</button>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+                <div class="container bajo">
+                    <div class="row bajo" *ngFor="let i of res.results">
+                        <div class="col-sm-4">
+                            <div class="card" style="width: 18rem;">
+                                <img *ngIf="i.multimedia !== null" [src]="i.multimedia.src |imgP" class="card-img-top" alt="...">
+                                <img *ngIf="i.multimedia == null" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyL4boRUlkGajD1gCVFDIBqSBtjQqutjZThY_kc3Xm0VebZ__XOw&s" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{i.display_title}}</h5>
+                                    <p class="card-text">{{i.summary_short}}</p>
+                                    <a href="#" class="btn btn-primary" [routerLink]="['/pelicula', i.display_title]">More.. </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+
+</div>
